@@ -34,30 +34,12 @@ jQuery( document ).ready(function() {
       TOGGLER.toggle();
     });
 
-  // CHANGE CURRENT CLASS BASED ON SCROLL POSITION
-  /*
+
   jQuery(window).scroll(function () {
     var windscroll = jQuery(window).scrollTop();
-    if (windscroll >= 100) {
+    if (windscroll > 0) {
       jQuery('.fusion-fullwidth').each(function (i) {
-        if (jQuery(this).position().top <= windscroll - 100) {
-          jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
-          jQuery('.hb-navigation a, .hb-navigation-switches a').eq(i).addClass('current');
-        }
-      });
-
-    } else {
-      jQuery('.hb-navigation a, .hb-navigation-switches a').removeClass('current');
-      jQuery('.hb-navigation a:first, .hb-navigation-switches a:first').addClass('current');
-    }
-
-  }).scroll();​
-  */
-  jQuery(window).scroll(function () {
-    var windscroll = jQuery(window).scrollTop();
-    if (windscroll >= 100) {
-      jQuery('.fusion-fullwidth').each(function (i) {
-        if (jQuery(this).position().top <= windscroll - 100) {
+        if (jQuery(this).position().top <= windscroll) {
           jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
           jQuery('.hb-navigation-switches a').eq(i).addClass('current');
         }
@@ -81,9 +63,9 @@ jQuery( document ).ready(function() {
 
 
     if (jQuery(jQuery.attr(this, 'href')).offset().top > lastScrollTop) {
-      jQuery('html, body').animate({ scrollTop: jQuery(jQuery.attr(this, 'href')).offset().top }, 500);
+      jQuery('html, body').animate({ scrollTop: jQuery(jQuery.attr(this, 'href')).offset().top +1 }, 500);
     } else {
-      jQuery('html, body').animate({ scrollTop: jQuery(jQuery.attr(this, 'href')).offset().top - 10 }, 500);
+      jQuery('html, body').animate({ scrollTop: jQuery(jQuery.attr(this, 'href')).offset().top + 1 }, 500);
     }
     lastScrollTop = jQuery(jQuery.attr(this, 'href')).offset().top;
 
