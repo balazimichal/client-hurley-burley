@@ -1,6 +1,6 @@
 jQuery( document ).ready(function() {
 
-
+  // MENU TOGGLER
   var TOGGLER = function () {
     var _state = false;
     console.log(_state);
@@ -30,42 +30,44 @@ jQuery( document ).ready(function() {
     }
   }();
 
-
   jQuery(".hb-navigation-button, .hb-navigation a").click(function () {
       TOGGLER.toggle();
     });
 
-
+  // CHANGE CURRENT CLASS BASED ON SCROLL POSITION
   /*
-  let menuPosition = 0;
+  jQuery(window).scroll(function () {
+    var windscroll = jQuery(window).scrollTop();
+    if (windscroll >= 100) {
+      jQuery('.fusion-fullwidth').each(function (i) {
+        if (jQuery(this).position().top <= windscroll - 100) {
+          jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
+          jQuery('.hb-navigation a, .hb-navigation-switches a').eq(i).addClass('current');
+        }
+      });
 
-  const openNav = () => {
-    menuMove = (menuPosition === 0) ? 400 : 0;
-    menuPosition = 400;
-    jQuery(".hb-navigation-button").addClass('active');
-    jQuery(".hb-navigation").animate({ "margin-right": '+=' + menuMove });
-  }
+    } else {
+      jQuery('.hb-navigation a, .hb-navigation-switches a').removeClass('current');
+      jQuery('.hb-navigation a:first, .hb-navigation-switches a:first').addClass('current');
+    }
 
-  const closeNav = () => {
-    menuMove = (menuPosition === 0) ? 0 : 400;
-    menuPosition = 0;
-    jQuery(".hb-navigation-button").removeClass('active');
-    jQuery(".hb-navigation").animate({ "margin-right": '-=' + menuMove });
-
-    // CLOSE NAVIGATION AFTER SELECTION
-    jQuery('body').on("click", ".hb-navigation a", function () {
-      closeNav();
-    });
-  }
-
-  // NAVIGATION
-  jQuery(".hb-navigation-button").toggle(function () {
-    openNav();
-  }, function () {
-    closeNav();
-  });
+  }).scroll();​
   */
-
+  jQuery(window).scroll(function () {
+    var windscroll = jQuery(window).scrollTop();
+    if (windscroll >= 100) {
+      jQuery('.fusion-fullwidth').each(function (i) {
+        if (jQuery(this).position().top <= windscroll - 100) {
+          jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
+          jQuery('.hb-navigation-switches a').eq(i).addClass('current');
+        }
+        console.log(i);
+      });
+    } else {
+      jQuery('.hb-navigation a, .hb-navigation-switches a').removeClass('current');
+      jQuery('.hb-navigation a:first, .hb-navigation-switches a:first').addClass('current');
+    }
+  }).scroll();
 
   // SMOOTH SCROLLING
   var lastScrollTop = 0;
