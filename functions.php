@@ -319,6 +319,7 @@ function hb_products() {
 		text-align:center;
 		z-index:100;
 		padding:50px 2%;
+		position:relative;
 	}
 	.hb-single-product a{
 		color:#fff;
@@ -401,15 +402,25 @@ function hb_products() {
 			position: absolute;
 	}
 
-	
+
 	.hb-single-product .initial{
 		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		padding:50px 5%;
+		z-index:102;
 	}
 	.hb-single-product .hover{
-		display:none;
-		visibility:none;
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		padding:50px 5%;
+		z-index:101;
 	}
-	
+
+	/*
 	.hb-single-product:hover .initial{
 		display:none;
 	}
@@ -417,12 +428,19 @@ function hb_products() {
 		display:block;
 	}
 	.mobile-image{display:none}
-
+	*/
+	
 	
 
 	.hb-single-product.blue{
 		background:#89C7E4;
 		color:#fff;
+	}
+	.hb-single-product.blue .hover{
+		background:#89C7E4;
+	}
+	.hb-single-product.blue .initial{
+		background:#89C7E4;
 	}
 	.hb-single-product.blue h2{
 		color:#009BAF;
@@ -448,6 +466,12 @@ function hb_products() {
 		background:#00794E;
 		color:#fff;
 	}	
+	.hb-single-product.green .hover{
+		background:#00794E;
+	}	
+	.hb-single-product.green .initial{
+		background:#00794E;
+	}	
 	.hb-single-product.green h2{
 		color:#AAD360;
 	}
@@ -472,6 +496,12 @@ function hb_products() {
 		background:#ED7701;
 		color:#fff;
 	}
+	.hb-single-product.orange .hover{
+		background:#ED7701;
+	}	
+	.hb-single-product.orange .initial{
+		background:#ED7701;
+	}	
 	.hb-single-product.orange h2{
 		color:#FBBD00;
 	}
@@ -496,6 +526,12 @@ function hb_products() {
 	.hb-single-product.red{
 		background:#C90932;
 		color:#fff;
+	}
+	.hb-single-product.red .hover{
+		background:#C90932;
+	}	
+	.hb-single-product.red .initial{
+		background:#C90932;
 	}
 	.hb-single-product.red h2{
 		color:#FFB6B1;
@@ -589,11 +625,11 @@ function hb_products() {
 	};
 
 	const handlerIn = function () {
-		jQuery(this).find(".initial").fadeOut(100);
 		jQuery(this).find(".hover").fadeIn(250);
+		jQuery(this).find(".initial").fadeOut(250);
 	}
 	const handlerOut = function () {
-		jQuery(this).find(".hover").fadeOut(100);
+		jQuery(this).find(".hover").fadeOut(250);
 		jQuery(this).find(".initial").fadeIn(250);
 		
 	}
@@ -605,7 +641,6 @@ function hb_products() {
 		const infoContent = jQuery(this).parent().parent().parent().next(".information").html();
 		jQuery(".hb-products-info-wrapper .more-info-content").html(infoContent);
 		jQuery(".hb-products-info-wrapper").show();
-
 		jQuery(".hb-products").hide();
 	});
 
