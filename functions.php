@@ -96,7 +96,36 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>Cool, Clean and Tangy</h2></div>';
 	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-fermented-raw-slaw.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="information">';
+	$hb_products .= '<div class="info-content blue">';
+	$hb_products .= '<h2>The Original</h2>';
+	$hb_products .= '<div class="left">';
+	$hb_products .= '<h3>Cool, Clean and Tangy.</h3>';
+	$hb_products .= '<p>White cabbage* (98%), sea salt, ascorbic acid.<br/>*Certified Organic.</p>';
+	$hb_products .= '<span class="mobile-image"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-package-fermented-raw-slaw.png" alt=""></span>';	
+	$hb_products .= '<table>';
+	$hb_products .= '<thead>';
+	$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
+	$hb_products .= '</thead>';
+	$hb_products .= '<tbody>';
+	$hb_products .= '<tr><td>Energy</td><td>74kJ/18kcal</td></tr>';
+	$hb_products .= '<tr><td>Fat</td><td>0.0g</td></tr>';
+	$hb_products .= '<tr><td><small>of which saturates</small></td><td>0.0g</td></tr>';
+	$hb_products .= '<tr><td>Carbohydrates</td><td>1.0g</td></tr>';
+	$hb_products .= '<tr><td><small>of which sugars</small></td><td>0.0g</td></tr>';
+	$hb_products .= '<tr><td>Fiber</td><td>2.5g</td></tr>';
+	$hb_products .= '<tr><td>Protein</td><td>1.0g</td></tr>';
+	$hb_products .= '<tr><td>Salt</td><td>1.5g</td></tr>';
+	$hb_products .= '</tbody>';
+	$hb_products .= '</table>';
+	$hb_products .= '<h3 class="reminder">Always Organic</h3>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="right">';
+	$hb_products .= '<img src="/hurley/wp-content/uploads/2018/04/hb-blue-package-fermented-raw-slaw.png" alt="">';	
+	$hb_products .= '</div>';
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
@@ -109,7 +138,12 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>Zingy, Crunchy and a Tad Hot</h2></div>';
 	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-green-jalapeno-oregano.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="information">';
+	$hb_products .= '<div class="info-content green">';
+	$hb_products .= 'some info';
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
@@ -122,7 +156,12 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>Bold, Rich and Fragrant</h2></div>';
 	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-orange-turmeric-cumin.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="information">';
+	$hb_products .= '<div class="info-content orange">';
+	$hb_products .= 'some info';
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
@@ -135,21 +174,111 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>Fresh, Crisp and Cleansing</h2></div>';
 	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-red-lemon-ginger.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="information">';
+	$hb_products .= '<div class="info-content red">';
+	$hb_products .= 'some info';
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
+
 	$hb_products .= '</div>';
+	$hb_products .= '<div class="hb-products-info-wrapper"><div class="more-info-content"></div><a href="#" class="close">Close</a></div>';
 	$hb_products .= '<style>
+	.hb-products{
+		position:relative;
+	}
 	.hb-single-product{
 		width:25%;
 		float:left;
 		text-align:center;
 		z-index:100;
 		padding:50px 2%;
-		cursor:pointer;
+	}
+	.hb-single-product a{
+		color:#fff;
+	}
+	.hb-single-product .hover p{
+		border-bottom:5px dotted rgba(255,255,255,0);
+		padding-bottom:20px;
 	}
 
+	.hb-single-product .information{
+		display:none;
+	}
+	.hb-products-info-wrapper{
+		display:none;
+	}	
+
+	.hb-products-info-wrapper .info-content{
+		padding:100px 10%;
+	}
+	.hb-products-info-wrapper .info-content:after{
+		content: "";
+    	display: block;
+    	clear: both;
+	}
+
+	.hb-products-info-wrapper .close{
+		opacity:1;
+		position:absolute;
+		top:100px;
+		right:10%;
+		text-align:right;
+		color:rgba(255,255,255,0.5);
+	}
+
+	.hb-products-info-wrapper h2{
+		font-size:100px !important;
+		color:#fff !important;
+		margin-bottom:40px;
+	}
+	.hb-products-info-wrapper h3{
+		font-size:48px;
+		color:#fff;
+		margin-bottom:60px;
+	}
+	.hb-products-info-wrapper p{
+		font-size:36px;
+		color:#fff;
+		margin-bottom:80px;
+	}
+	.hb-products-info-wrapper small{
+		font-size:20px;
+	}
+	.hb-products-info-wrapper table{
+		width:100%;
+		margin-bottom:100px;
+	}
+	.hb-products-info-wrapper tbody tr{
+		border-bottom:1px solid rgba(255,255,255,0.5)
+	}
+	.hb-products-info-wrapper td:last-child, .hb-products-info-wrapper th:last-child{
+		text-align:right;
+	}
+	.hb-products-info-wrapper h3.reminder{
+		font-size:60px;
+	}
+
+	.hb-products-info-wrapper .left{
+		float:left;
+		width:50%;
+	}
+	.hb-products-info-wrapper .right{
+		float:left;
+		width:50%;
+	}
+	.hb-products-info-wrapper .right img{
+		    text-align: right;
+			margin-left: 100px;
+			display: block;
+			width: 80%;
+			position: absolute;
+	}
+
+	
 	.hb-single-product .initial{
 		display:block;
 	}
@@ -164,6 +293,8 @@ function hb_products() {
 	.hb-single-product:hover .hover{
 		display:block;
 	}
+	.mobile-image{display:none}
+
 	
 
 	.hb-single-product.blue{
@@ -173,12 +304,23 @@ function hb_products() {
 	.hb-single-product.blue h2{
 		color:#009BAF;
 	}
-	.hb-single-product.blue .hover{
+	.hb-single-product.blue .hover a{
 		color:#009BAF;
 	}
 	.hb-single-product.blue .hover h2{
 		color:#fff;
 	}
+	.hb-products-info-wrapper .blue{
+		background:#009BAF;
+	}
+	.hb-products-info-wrapper .blue h3.reminder{
+		color:#89C7E4;
+	}
+	.hb-products-info-wrapper .blue small{
+		color:#89C7E4;
+	}
+
+
 	.hb-single-product.green{
 		background:#00794E;
 		color:#fff;
@@ -186,12 +328,23 @@ function hb_products() {
 	.hb-single-product.green h2{
 		color:#AAD360;
 	}
-	.hb-single-product.green .hover{
+	.hb-single-product.green .hover a{
 		color:#AAD360;
 	}
 	.hb-single-product.green .hover h2{
 		color:#fff;
 	}
+	.hb-products-info-wrapper .green{
+		background:#00794E;
+	}
+	.hb-products-info-wrapper .green h3.reminder{
+		color:#89C7E4;
+	}
+	.hb-products-info-wrapper .green small{
+		color:#89C7E4;
+	}
+
+
 	.hb-single-product.orange{
 		background:#ED7701;
 		color:#fff;
@@ -199,12 +352,24 @@ function hb_products() {
 	.hb-single-product.orange h2{
 		color:#FBBD00;
 	}
-	.hb-single-product.orange .hover{
+	.hb-single-product.orange .hover a{
 		color:#FBBD00;
 	}
 	.hb-single-product.orange .hover h2{
 		color:#fff;
 	}
+	.hb-products-info-wrapper .orange{
+		background:#ED7701;
+	}
+	.hb-products-info-wrapper .orange h3.reminder{
+		color:#89C7E4;
+	}
+	.hb-products-info-wrapper .orange small{
+		color:#89C7E4;
+	}
+
+
+
 	.hb-single-product.red{
 		background:#C90932;
 		color:#fff;
@@ -212,25 +377,81 @@ function hb_products() {
 	.hb-single-product.red h2{
 		color:#FFB6B1;
 	}
-	.hb-single-product.red .hover{
+	.hb-single-product.red .hover a{
 		color:#FFB6B1;
 	}
 	.hb-single-product.red .hover h2 {
 		color:#fff;
 	}
+	.hb-products-info-wrapper .red{
+		background:#BA002B;
+	}
+	.hb-products-info-wrapper .red h3.reminder{
+		color:#89C7E4;
+	}
+	.hb-products-info-wrapper .red small{
+		color:#89C7E4;
+	}
+
+
 	@media only screen and (max-width: 1024px) {
 		.hb-single-product{
 			width:100%;
 			padding:50px 30px;
 		}
+		.hb-products-info-wrapper .info-content{
+			padding:50px 30px;
+		}
+		.hb-products-info-wrapper h2{
+			text-align:center;
+			font-size:44px !important;
+		}
+		.hb-products-info-wrapper h3{
+			text-align:center;
+			font-size:24px !important;
+		}
+		.hb-products-info-wrapper p{
+			text-align:center;
+			font-size:20px;
+		}
+		.hb-single-product .intro p, .hb-single-product .hover p{
+			border-bottom:5px dotted rgba(255,255,255,0.5);
+			padding-bottom:20px;
+		}
+		.mobile-image{display:block}
+		.hb-products-info-wrapper table td,.hb-products-info-wrapper table th{
+			font-size:20px;
+		}
+		.hb-products-info-wrapper h3.reminder{
+			float:left;
+			text-align:left;
+			line-height:20px;
+			margin-bottom:0;
+		}
+		.hb-products-info-wrapper .close{
+			position:absolute;
+			top:auto;
+			bottom:50px;
+			right:10%;
+			color:#fff;
+		}
+		.hb-products-info-wrapper .left{
+			float:none;
+			width:100%;
+		}
+		.hb-products-info-wrapper .right{
+			display:none;
+		}
 	}
 	</style>';
 	$hb_products .= '<script>
+	console.log("latest version");
 	let ourProducts = () => {
 		const wh = jQuery(window).height();
 		const sph = jQuery( ".hb-single-product" ).height();
 		if(sph < wh) {
 			jQuery( ".hb-single-product" ).height(wh);
+			jQuery( ".hb-single-product .information" ).height(wh);
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
 			jQuery( ".hb-single-product .two" ).height(wh*0.5);
 			jQuery( ".hb-single-product .three" ).height(wh*0.2);
@@ -255,6 +476,42 @@ function hb_products() {
 	}
 	jQuery( ".hb-single-product" ).mouseenter( handlerIn ).mouseleave( handlerOut );
 
+
+	jQuery( ".hb-single-product a" ).click(function(e) {
+		e.preventDefault();
+		const infoContent = jQuery(this).parent().parent().parent().next(".information").html();
+		jQuery(".hb-products-info-wrapper .more-info-content").html(infoContent);
+		jQuery(".hb-products-info-wrapper").show();
+
+		jQuery(".hb-products").hide();
+	});
+
+
+	jQuery( ".close" ).on( "click", function(e) {
+		e.preventDefault();
+		console.log( jQuery( this ).text() );
+		jQuery(".hb-products-info-wrapper").hide();
+
+		jQuery(".hb-products").show();
+	});
+	
+
+
+	/*
+	jQuery( ".hb-single-product a" ).click(function(e) {
+		e.preventDefault();
+		const ih = jQuery(this).parent().parent().parent().next(".information").outerHeight();
+		const op = jQuery("#our-products").outerHeight();
+
+		if(ih > op) {
+			jQuery("#our-products").height(ih);
+		}
+ 		jQuery(this).parent().parent().parent().next(".information").fadeIn(250);
+	});
+	jQuery( ".hb-single-product .information .close" ).click(function() {
+		jQuery(this).parent(".information").fadeOut(250);
+	});
+	*/
 	</script>';
 	return $hb_products; 
 }
