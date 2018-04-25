@@ -81,6 +81,187 @@ add_theme_support( 'post-thumbnails' );
 //add_image_size( 'similar-pages', 400, 300, true );
 
 
+
+// PRODUCTS
+function hb_products() { 
+	$hb_products = null;
+	$hb_products .= '<div class="hb-products">';
+
+	$hb_products .= '<div class="hb-single-product blue">';
+	$hb_products .= '<div class="initial">';
+	$hb_products .= '<div class="one"><h2>The Original</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-fermented-raw-slaw.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>*Cool, Clean and Tangy</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="hover">';
+	$hb_products .= '<div class="one"><h2>Cool, Clean and Tangy</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-fermented-raw-slaw.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '</div>';
+
+	$hb_products .= '<div class="hb-single-product green">';
+	$hb_products .= '<div class="initial">';
+	$hb_products .= '<div class="one"><h2>Jalapeño and Oregano</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-green-jalapeno-oregano.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>*Zingy, Crunchy and a Tad Hot</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="hover">';
+	$hb_products .= '<div class="one"><h2>Zingy, Crunchy and a Tad Hot</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-green-jalapeno-oregano.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '</div>';
+
+	$hb_products .= '<div class="hb-single-product orange">';
+	$hb_products .= '<div class="initial">';
+	$hb_products .= '<div class="one"><h2>Turmeric and Cumin</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-orange-turmeric-cumin.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>*Bold, Rich and Fragrant</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="hover">';
+	$hb_products .= '<div class="one"><h2>Bold, Rich and Fragrant</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-orange-turmeric-cumin.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '</div>';
+
+	$hb_products .= '<div class="hb-single-product red">';
+	$hb_products .= '<div class="initial">';
+	$hb_products .= '<div class="one"><h2>Lemon and Ginger</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-red-lemon-ginger.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>*Fresh, Crisp and Cleansing </p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="hover">';
+	$hb_products .= '<div class="one"><h2>Fresh, Crisp and Cleansing</h2></div>';
+	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-red-lemon-ginger.png" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>More on Nutritional Values and Ingredients</p></div>';
+	$hb_products .= '</div>';
+	$hb_products .= '</div>';
+
+	$hb_products .= '</div>';
+	$hb_products .= '<style>
+	.hb-single-product{
+		width:25%;
+		float:left;
+		text-align:center;
+		z-index:100;
+		padding:50px 2%;
+		cursor:pointer;
+	}
+
+	.hb-single-product .initial{
+		display:block;
+	}
+	.hb-single-product .hover{
+		display:none;
+		visibility:none;
+	}
+	
+	.hb-single-product:hover .initial{
+		display:none;
+	}
+	.hb-single-product:hover .hover{
+		display:block;
+	}
+	
+
+	.hb-single-product.blue{
+		background:#89C7E4;
+		color:#fff;
+	}
+	.hb-single-product.blue h2{
+		color:#009BAF;
+	}
+	.hb-single-product.blue .hover{
+		color:#009BAF;
+	}
+	.hb-single-product.blue .hover h2{
+		color:#fff;
+	}
+	.hb-single-product.green{
+		background:#00794E;
+		color:#fff;
+	}	
+	.hb-single-product.green h2{
+		color:#AAD360;
+	}
+	.hb-single-product.green .hover{
+		color:#AAD360;
+	}
+	.hb-single-product.green .hover h2{
+		color:#fff;
+	}
+	.hb-single-product.orange{
+		background:#ED7701;
+		color:#fff;
+	}
+	.hb-single-product.orange h2{
+		color:#FBBD00;
+	}
+	.hb-single-product.orange .hover{
+		color:#FBBD00;
+	}
+	.hb-single-product.orange .hover h2{
+		color:#fff;
+	}
+	.hb-single-product.red{
+		background:#C90932;
+		color:#fff;
+	}
+	.hb-single-product.red h2{
+		color:#FFB6B1;
+	}
+	.hb-single-product.red .hover{
+		color:#FFB6B1;
+	}
+	.hb-single-product.red .hover h2 {
+		color:#fff;
+	}
+	@media only screen and (max-width: 1024px) {
+		.hb-single-product{
+			width:100%;
+			padding:50px 30px;
+		}
+	}
+	</style>';
+	$hb_products .= '<script>
+	let ourProducts = () => {
+		const wh = jQuery(window).height();
+		const sph = jQuery( ".hb-single-product" ).height();
+		if(sph < wh) {
+			jQuery( ".hb-single-product" ).height(wh);
+			jQuery( ".hb-single-product .one" ).height(wh*0.3);
+			jQuery( ".hb-single-product .two" ).height(wh*0.5);
+			jQuery( ".hb-single-product .three" ).height(wh*0.2);
+
+		}
+	}
+	ourProducts();
+	let doit;
+    window.onresize = function(){
+      clearTimeout(doit);
+      doit = setTimeout(ourProducts, 100);
+	};
+
+	const handlerIn = function () {
+		jQuery(this).find(".initial").fadeOut(100);
+		jQuery(this).find(".hover").fadeIn(250);
+	}
+	const handlerOut = function () {
+		jQuery(this).find(".hover").fadeOut(100);
+		jQuery(this).find(".initial").fadeIn(250);
+		
+	}
+	jQuery( ".hb-single-product" ).mouseenter( handlerIn ).mouseleave( handlerOut );
+
+	</script>';
+	return $hb_products; 
+}
+add_shortcode('hb-products', 'hb_products');
+
+
+
 // REGISTER HURLEY BURLEY MENU
 add_action( 'after_setup_theme', 'register_hb_menu' );
 function register_hb_menu() {

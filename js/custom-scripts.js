@@ -3,7 +3,6 @@ jQuery( document ).ready(function() {
   // MENU TOGGLER
   var TOGGLER = function () {
     var _state = false;
-    console.log(_state);
 
     var openMenu = function () {
       jQuery(".hb-navigation-button").addClass('active');
@@ -43,7 +42,6 @@ jQuery( document ).ready(function() {
           jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
           jQuery('.hb-navigation-switches a').eq(i).addClass('current');
         }
-        console.log(i);
       });
     } else {
       jQuery('.hb-navigation a, .hb-navigation-switches a').removeClass('current');
