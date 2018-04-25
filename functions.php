@@ -82,103 +82,226 @@ add_theme_support( 'post-thumbnails' );
 
 
 
+
+// ADD OPTIONS PAGES (ACF PLUGIN MUST BE INSTALLED)
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> $THEME_GLOBALS['theme_name'].' Products',
+		'menu_title'	=> $THEME_GLOBALS['theme_name'].' Products',
+		'menu_slug' 	=> 'theme-general-products',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> $THEME_GLOBALS['theme_name'].' Footer',
+		'menu_title'	=> $THEME_GLOBALS['theme_name'].' Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+
+}
+
+
+
 // PRODUCTS
 function hb_products() { 
 	$hb_products = null;
 	$hb_products .= '<div class="hb-products">';
 
+
+	// BLUE
 	$hb_products .= '<div class="hb-single-product blue">';
 	$hb_products .= '<div class="initial">';
-	$hb_products .= '<div class="one"><h2>The Original</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-fermented-raw-slaw.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>*Cool, Clean and Tangy</p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('blue_title', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('blue_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>'.get_field('blue_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
-	$hb_products .= '<div class="one"><h2>Cool, Clean and Tangy</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-fermented-raw-slaw.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('blue_tag', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('blue_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p><a href="#">'.get_field('blue_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content blue">';
-	$hb_products .= '<h2>The Original</h2>';
+	$hb_products .= '<h2>'.get_field('blue_title', 'options').'</h2>';
 	$hb_products .= '<div class="left">';
-	$hb_products .= '<h3>Cool, Clean and Tangy.</h3>';
-	$hb_products .= '<p>White cabbage* (98%), sea salt, ascorbic acid.<br/>*Certified Organic.</p>';
-	$hb_products .= '<span class="mobile-image"><img src="/hurley/wp-content/uploads/2018/04/hb-blue-package-fermented-raw-slaw.png" alt=""></span>';	
-	$hb_products .= '<table>';
-	$hb_products .= '<thead>';
-	$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
-	$hb_products .= '</thead>';
-	$hb_products .= '<tbody>';
-	$hb_products .= '<tr><td>Energy</td><td>74kJ/18kcal</td></tr>';
-	$hb_products .= '<tr><td>Fat</td><td>0.0g</td></tr>';
-	$hb_products .= '<tr><td><small>of which saturates</small></td><td>0.0g</td></tr>';
-	$hb_products .= '<tr><td>Carbohydrates</td><td>1.0g</td></tr>';
-	$hb_products .= '<tr><td><small>of which sugars</small></td><td>0.0g</td></tr>';
-	$hb_products .= '<tr><td>Fiber</td><td>2.5g</td></tr>';
-	$hb_products .= '<tr><td>Protein</td><td>1.0g</td></tr>';
-	$hb_products .= '<tr><td>Salt</td><td>1.5g</td></tr>';
-	$hb_products .= '</tbody>';
-	$hb_products .= '</table>';
-	$hb_products .= '<h3 class="reminder">Always Organic</h3>';
+	$hb_products .= '<h3>'.get_field('blue_tag', 'options').'</h3>';
+	$hb_products .= '<p>'.get_field('blue_description', 'options').'</p>';
+	$hb_products .= '<span class="mobile-image"><img src="'.get_field('blue_hero_image', 'options').'" alt=""></span>';	
+
+	if( have_rows('blue_table', 'options') ):
+
+		$hb_products .= '<table>';
+		$hb_products .= '<thead>';
+		$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
+		$hb_products .= '</thead>';
+		$hb_products .= '<tbody>';
+
+		while ( have_rows('blue_table', 'options') ) : the_row();
+			
+			$hb_products .= '<tr><td>'.get_sub_field('title').'</td><td>'.get_sub_field('value').'</td></tr>';
+
+		endwhile;
+
+		$hb_products .= '</tbody>';
+		$hb_products .= '</table>';
+
+	endif;
+
+	$hb_products .= '<h3 class="reminder">'.get_field('blue_reminder','options').'</h3>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="right">';
-	$hb_products .= '<img src="/hurley/wp-content/uploads/2018/04/hb-blue-package-fermented-raw-slaw.png" alt="">';	
+	$hb_products .= '<img src="'.get_field('blue_hero_image', 'options').'" alt="">';	
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
+
+	// GREEN
 	$hb_products .= '<div class="hb-single-product green">';
 	$hb_products .= '<div class="initial">';
-	$hb_products .= '<div class="one"><h2>Jalapeño and Oregano</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-green-jalapeno-oregano.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>*Zingy, Crunchy and a Tad Hot</p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('green_title', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('green_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>'.get_field('green_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
-	$hb_products .= '<div class="one"><h2>Zingy, Crunchy and a Tad Hot</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-green-jalapeno-oregano.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('green_tag', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('green_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p><a href="#">'.get_field('green_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content green">';
-	$hb_products .= 'some info';
+	$hb_products .= '<h2>'.get_field('green_title', 'options').'</h2>';
+	$hb_products .= '<div class="left">';
+	$hb_products .= '<h3>'.get_field('green_tag', 'options').'</h3>';
+	$hb_products .= '<p>'.get_field('green_description', 'options').'</p>';
+	$hb_products .= '<span class="mobile-image"><img src="'.get_field('green_hero_image', 'options').'" alt=""></span>';	
+
+	if( have_rows('green_table', 'options') ):
+
+		$hb_products .= '<table>';
+		$hb_products .= '<thead>';
+		$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
+		$hb_products .= '</thead>';
+		$hb_products .= '<tbody>';
+
+		while ( have_rows('green_table', 'options') ) : the_row();
+			
+			$hb_products .= '<tr><td>'.get_sub_field('title').'</td><td>'.get_sub_field('value').'</td></tr>';
+
+		endwhile;
+
+		$hb_products .= '</tbody>';
+		$hb_products .= '</table>';
+
+	endif;
+
+	$hb_products .= '<h3 class="reminder">'.get_field('green_reminder','options').'</h3>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="right">';
+	$hb_products .= '<img src="'.get_field('green_hero_image', 'options').'" alt="">';	
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
+
+	// ORANGE
 	$hb_products .= '<div class="hb-single-product orange">';
 	$hb_products .= '<div class="initial">';
-	$hb_products .= '<div class="one"><h2>Turmeric and Cumin</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-orange-turmeric-cumin.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>*Bold, Rich and Fragrant</p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('orange_title', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('orange_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>'.get_field('orange_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
-	$hb_products .= '<div class="one"><h2>Bold, Rich and Fragrant</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-orange-turmeric-cumin.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('orange_tag', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('orange_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p><a href="#">'.get_field('orange_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content orange">';
-	$hb_products .= 'some info';
+	$hb_products .= '<h2>'.get_field('orange_title', 'options').'</h2>';
+	$hb_products .= '<div class="left">';
+	$hb_products .= '<h3>'.get_field('orange_tag', 'options').'</h3>';
+	$hb_products .= '<p>'.get_field('orange_description', 'options').'</p>';
+	$hb_products .= '<span class="mobile-image"><img src="'.get_field('orange_hero_image', 'options').'" alt=""></span>';	
+
+	if( have_rows('orange_table', 'options') ):
+
+		$hb_products .= '<table>';
+		$hb_products .= '<thead>';
+		$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
+		$hb_products .= '</thead>';
+		$hb_products .= '<tbody>';
+
+		while ( have_rows('orange_table', 'options') ) : the_row();
+			
+			$hb_products .= '<tr><td>'.get_sub_field('title').'</td><td>'.get_sub_field('value').'</td></tr>';
+
+		endwhile;
+
+		$hb_products .= '</tbody>';
+		$hb_products .= '</table>';
+
+	endif;
+
+	$hb_products .= '<h3 class="reminder">'.get_field('orange_reminder','options').'</h3>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="right">';
+	$hb_products .= '<img src="'.get_field('orange_hero_image', 'options').'" alt="">';	
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 
+
+	// RED
 	$hb_products .= '<div class="hb-single-product red">';
 	$hb_products .= '<div class="initial">';
-	$hb_products .= '<div class="one"><h2>Lemon and Ginger</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-red-lemon-ginger.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p>*Fresh, Crisp and Cleansing </p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('red_title', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('red_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p>'.get_field('red_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
-	$hb_products .= '<div class="one"><h2>Fresh, Crisp and Cleansing</h2></div>';
-	$hb_products .= '<div class="two"><img src="/hurley/wp-content/uploads/2018/04/hb-red-lemon-ginger.png" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">More on Nutritional Values and Ingredients</a></p></div>';
+	$hb_products .= '<div class="one"><h2>'.get_field('red_tag', 'options').'</h2></div>';
+	$hb_products .= '<div class="two"><img src="'.get_field('red_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p><a href="#">'.get_field('red_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content red">';
-	$hb_products .= 'some info';
+	$hb_products .= '<h2>'.get_field('red_title', 'options').'</h2>';
+	$hb_products .= '<div class="left">';
+	$hb_products .= '<h3>'.get_field('red_tag', 'options').'</h3>';
+	$hb_products .= '<p>'.get_field('red_description', 'options').'</p>';
+	$hb_products .= '<span class="mobile-image"><img src="'.get_field('red_hero_image', 'options').'" alt=""></span>';	
+
+	if( have_rows('red_table', 'options') ):
+
+		$hb_products .= '<table>';
+		$hb_products .= '<thead>';
+		$hb_products .= '<tr><th>&nbsp;</th><th><small>per 100G</small></th></tr>';
+		$hb_products .= '</thead>';
+		$hb_products .= '<tbody>';
+
+		while ( have_rows('red_table', 'options') ) : the_row();
+			
+			$hb_products .= '<tr><td>'.get_sub_field('title').'</td><td>'.get_sub_field('value').'</td></tr>';
+
+		endwhile;
+
+		$hb_products .= '</tbody>';
+		$hb_products .= '</table>';
+
+	endif;
+
+	$hb_products .= '<h3 class="reminder">'.get_field('red_reminder','options').'</h3>';
+	$hb_products .= '</div>';
+	$hb_products .= '<div class="right">';
+	$hb_products .= '<img src="'.get_field('red_hero_image', 'options').'" alt="">';	
+	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
 	$hb_products .= '</div>';
@@ -338,10 +461,10 @@ function hb_products() {
 		background:#00794E;
 	}
 	.hb-products-info-wrapper .green h3.reminder{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 	.hb-products-info-wrapper .green small{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 
 
@@ -362,10 +485,10 @@ function hb_products() {
 		background:#ED7701;
 	}
 	.hb-products-info-wrapper .orange h3.reminder{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 	.hb-products-info-wrapper .orange small{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 
 
@@ -387,10 +510,10 @@ function hb_products() {
 		background:#BA002B;
 	}
 	.hb-products-info-wrapper .red h3.reminder{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 	.hb-products-info-wrapper .red small{
-		color:#89C7E4;
+		color:#F0B139;
 	}
 
 
@@ -711,24 +834,4 @@ add_shortcode('hb-footer', 'hb_footer');
 
 
 
-// ADD OPTIONS PAGES (ACF PLUGIN MUST BE INSTALLED)
-/*
-if( function_exists('acf_add_options_page') ) {
 
-	acf_add_options_page(array(
-		'page_title' 	=> $THEME_GLOBALS['theme_name'].' Settings',
-		'menu_title'	=> $THEME_GLOBALS['theme_name'].' Settings',
-		'menu_slug' 	=> 'theme-general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> $THEME_GLOBALS['theme_name'].' Footer',
-		'menu_title'	=> $THEME_GLOBALS['theme_name'].' Footer',
-		'parent_slug'	=> 'theme-general-settings',
-	));
-
-
-}
-*/
