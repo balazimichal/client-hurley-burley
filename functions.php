@@ -134,7 +134,11 @@ $hb_post_slider .= '<script>
 
 jQuery(window).load(function() {
   jQuery(".flexslider").flexslider({
-    animation: "slide"
+	animation: "fade",
+	animationLoop: false,
+	smoothHeight: true,
+	slideshow: false,
+	directionNav: false
   });
 });
 
