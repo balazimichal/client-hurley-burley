@@ -109,27 +109,24 @@ if( function_exists('acf_add_options_page') ) {
 // PULL POSTS TO SLIDER
 function hb_post_slider( $atts ) { 
 
-$atts = $atts['id'];
+$arr = explode(',', $atts['id']);
 
-
-$my_postid = 358;//This is page id or post id
-$content_post = get_post($my_postid);
-$content = $content_post->post_content;
-$content = apply_filters('the_content', $content);
-$content = str_replace(']]>', ']]&gt;', $content);
-
-
-$hb_post_slider = '<div class="flexslider">';
+$hb_post_slider = null;
+$hb_post_slider .= '<div class="flexslider">';
 $hb_post_slider .= '<ul class="slides">';
-$hb_post_slider .= '<li>';
-$hb_post_slider .= $content;
-$hb_post_slider .= '</li>';
-$hb_post_slider .= '<li>';
-$hb_post_slider .= $content;
-$hb_post_slider .= '</li>';
-$hb_post_slider .= '<li>';
-$hb_post_slider .= $content;
-$hb_post_slider .= '</li>';
+
+foreach ($arr as $postid) {
+	$content_post = get_post($postid);
+	$content = $content_post->post_content;
+	$content = apply_filters('the_content', $content);
+	$content = str_replace(']]>', ']]&gt;', $content);
+
+	$hb_post_slider .= '<li>';
+	$hb_post_slider .= $content;
+	$hb_post_slider .= '</li>';
+}
+
+
 $hb_post_slider .= '</ul>';
 $hb_post_slider .= '</div>';
 
@@ -142,8 +139,9 @@ jQuery(window).load(function() {
 });
 
 </script>';
-//return $hb_post_slider;
-return $atts;
+
+return $hb_post_slider;
+
 }
 add_shortcode('hb-post-slider', 'hb_post_slider');
 
