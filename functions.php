@@ -3,7 +3,7 @@
 
 /********** THEME VARIABLES *************/
 
-$THEME_GLOBALS['theme_name'] = 'Hurley Burley';  // set up theme name
+$THEME_GLOBALS['theme_name'] = 'Hurly Burly';  // set up theme name
 
 /****************************************/
 
@@ -102,6 +102,52 @@ if( function_exists('acf_add_options_page') ) {
 
 
 }
+
+
+
+
+// PULL POSTS TO SLIDER
+function hb_post_slider( $atts ) { 
+
+$atts = $atts['id'];
+
+
+$my_postid = 358;//This is page id or post id
+$content_post = get_post($my_postid);
+$content = $content_post->post_content;
+$content = apply_filters('the_content', $content);
+$content = str_replace(']]>', ']]&gt;', $content);
+
+
+$hb_post_slider = '<div class="flexslider">';
+$hb_post_slider .= '<ul class="slides">';
+$hb_post_slider .= '<li>';
+$hb_post_slider .= $content;
+$hb_post_slider .= '</li>';
+$hb_post_slider .= '<li>';
+$hb_post_slider .= $content;
+$hb_post_slider .= '</li>';
+$hb_post_slider .= '<li>';
+$hb_post_slider .= $content;
+$hb_post_slider .= '</li>';
+$hb_post_slider .= '</ul>';
+$hb_post_slider .= '</div>';
+
+$hb_post_slider .= '<script>
+
+jQuery(window).load(function() {
+  jQuery(".flexslider").flexslider({
+    animation: "slide"
+  });
+});
+
+</script>';
+//return $hb_post_slider;
+return $atts;
+}
+add_shortcode('hb-post-slider', 'hb_post_slider');
+
+
 
 
 
@@ -410,6 +456,8 @@ function hb_products() {
 		left:0;
 		padding:50px 5%;
 		z-index:102;
+		width:25%;
+		width:100%;
 	}
 	.hb-single-product .hover{
 		display:block;
@@ -418,17 +466,14 @@ function hb_products() {
 		left:0;
 		padding:50px 5%;
 		z-index:101;
+		width:100%;
 	}
 
-	/*
-	.hb-single-product:hover .initial{
-		display:none;
-	}
-	.hb-single-product:hover .hover{
-		display:block;
-	}
+
+
+
 	.mobile-image{display:none}
-	*/
+
 	
 	
 
@@ -601,6 +646,7 @@ function hb_products() {
 		.hb-products-info-wrapper .right{
 			display:none;
 		}
+
 	}
 	</style>';
 	$hb_products .= '<script>
@@ -614,7 +660,10 @@ function hb_products() {
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
 			jQuery( ".hb-single-product .two" ).height(wh*0.5);
 			jQuery( ".hb-single-product .three" ).height(wh*0.2);
-
+		} else {
+			jQuery( ".hb-single-product .one" ).height(wh*0.3);
+			jQuery( ".hb-single-product .two" ).height(wh*0.6);
+			jQuery( ".hb-single-product .three" ).height(wh*0.1);
 		}
 	}
 	ourProducts();
@@ -642,6 +691,9 @@ function hb_products() {
 		jQuery(".hb-products-info-wrapper .more-info-content").html(infoContent);
 		jQuery(".hb-products-info-wrapper").show();
 		jQuery(".hb-products").hide();
+		jQuery("html, body").animate({
+			scrollTop: jQuery("#our-products").offset().top
+		}, 550);
 	});
 
 
@@ -649,27 +701,9 @@ function hb_products() {
 		e.preventDefault();
 		console.log( jQuery( this ).text() );
 		jQuery(".hb-products-info-wrapper").hide();
-
 		jQuery(".hb-products").show();
 	});
 	
-
-
-	/*
-	jQuery( ".hb-single-product a" ).click(function(e) {
-		e.preventDefault();
-		const ih = jQuery(this).parent().parent().parent().next(".information").outerHeight();
-		const op = jQuery("#our-products").outerHeight();
-
-		if(ih > op) {
-			jQuery("#our-products").height(ih);
-		}
- 		jQuery(this).parent().parent().parent().next(".information").fadeIn(250);
-	});
-	jQuery( ".hb-single-product .information .close" ).click(function() {
-		jQuery(this).parent(".information").fadeOut(250);
-	});
-	*/
 	</script>';
 	return $hb_products; 
 }
