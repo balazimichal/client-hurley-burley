@@ -6,12 +6,19 @@ jQuery( document ).ready(function() {
 
     var openMenu = function () {
       jQuery(".hb-navigation-button").addClass('active');
+      jQuery(".hb-navigation").show();
       jQuery(".hb-navigation").animate({ "margin-right": '+=400' });
     }
 
     var closeMenu = function () {
       jQuery(".hb-navigation-button").removeClass('active');
-      jQuery(".hb-navigation").animate({ "margin-right": '-=400'});
+      jQuery(".hb-navigation").animate({
+        "margin-right": '-=400'}, 400, "linear", 
+        function () {
+          jQuery(".hb-navigation").hide();
+        }
+      )
+      
     }
 
     return {
@@ -29,7 +36,8 @@ jQuery( document ).ready(function() {
     }
   }();
 
-  jQuery(".hb-navigation-button, .hb-navigation a").click(function () {
+  jQuery(".hb-navigation-button, .hb-navigation a").click(function (e) {
+      e.preventDefault();
       TOGGLER.toggle();
     });
 
@@ -37,7 +45,7 @@ jQuery( document ).ready(function() {
   jQuery(window).scroll(function () {
     var windscroll = jQuery(window).scrollTop();
     if (windscroll > 0) {
-      jQuery('.fusion-fullwidth').each(function (i) {
+      jQuery('.section').each(function (i) {
         if (jQuery(this).position().top <= windscroll) {
           jQuery('.hb-navigation a.current, .hb-navigation-switches a.current').removeClass('current');
           jQuery('.hb-navigation-switches a').eq(i).addClass('current');

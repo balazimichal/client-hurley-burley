@@ -144,6 +144,10 @@ jQuery(window).load(function() {
 
 </script>';
 
+$hb_post_slider .= '<style>
+.flexslider{margin-bottom:0;}
+</style>';
+
 return $hb_post_slider;
 
 }
