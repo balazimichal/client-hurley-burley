@@ -173,7 +173,7 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('blue_tag', 'options').'</h2></div>';
 	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('blue_image', 'options').'" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">'.get_field('blue_link', 'options').'</a></p><a class="fusion-button" href="">FIND OUT MORE</a></div>';
+	$hb_products .= '<div class="three"><a class="product-button" href="#">FIND OUT MORE</a><p>'.get_field('blue_link', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content blue">';
@@ -222,7 +222,7 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('green_tag', 'options').'</h2></div>';
 	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('green_image', 'options').'" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">'.get_field('green_link', 'options').'</a></p></div>';
+	$hb_products .= '<div class="three"><a class="product-button" href="#">FIND OUT MORE</a><p>'.get_field('green_link', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content green">';
@@ -271,7 +271,7 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('orange_tag', 'options').'</h2></div>';
 	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('orange_image', 'options').'" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">'.get_field('orange_link', 'options').'</a></p></div>';
+	$hb_products .= '<div class="three"><a class="product-button" href="#">FIND OUT MORE</a><p>'.get_field('orange_link', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content orange">';
@@ -320,7 +320,7 @@ function hb_products() {
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('red_tag', 'options').'</h2></div>';
 	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('red_image', 'options').'" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">'.get_field('red_link', 'options').'</a></p></div>';
+	$hb_products .= '<div class="three"><a class="product-button" href="#">FIND OUT MORE</a><p>'.get_field('red_link', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content red">';
@@ -400,7 +400,7 @@ function hb_products() {
 	.hb-products-info-wrapper .close{
 		opacity:1;
 		position:absolute;
-		top:100px;
+		top:60px;
 		right:10%;
 		text-align:right;
 		color:rgba(255,255,255,0.5);
@@ -417,7 +417,7 @@ function hb_products() {
 		margin-bottom:60px;
 	}
 	.hb-products-info-wrapper p{
-		font-size:2.4vw;
+		font-size:2vw;
 		color:#fff;
 		margin-bottom:80px;
 	}
@@ -429,7 +429,8 @@ function hb_products() {
 		margin-bottom:100px;
 	}
 	.hb-products-info-wrapper tbody tr{
-		border-bottom:1px solid rgba(255,255,255,0.5)
+		border-bottom:1px solid rgba(255,255,255,0.5);
+		line-height:48px !important;
 	}
 	.hb-products-info-wrapper td:last-child, .hb-products-info-wrapper th:last-child{
 		text-align:right;
@@ -475,8 +476,23 @@ function hb_products() {
 		width:100%;
 	}
 
+	.hb-single-product p{
+		margin-bottom:0;
+		font-size:18px;
+	}
 
+	.product-button{
+		padding:5px 20px;
+		background:#fff;
+		color:black;
+		display:inline-block;
+		font-size:20px !important;
+		margin-bottom:20px;
+	}
 
+	.hb-single-product .three{
+		font-size:24px;
+	}
 
 	.mobile-image{display:none}
 
@@ -624,6 +640,9 @@ function hb_products() {
 			text-align:center;
 			font-size:20px;
 		}
+		.product-button{
+			padding:10px 20px !important;
+		}
 		.hb-single-product .intro p, .hb-single-product .hover p{
 			border-bottom:5px dotted rgba(255,255,255,0.5);
 			padding-bottom:20px;
@@ -641,7 +660,7 @@ function hb_products() {
 		.hb-products-info-wrapper .close{
 			position:absolute;
 			top:auto;
-			bottom:50px;
+			bottom:90px;
 			right:10%;
 			color:#fff;
 		}
@@ -654,6 +673,13 @@ function hb_products() {
 		}
 
 	}
+
+
+	@media only screen and (max-width: 600px) {
+		.hb-products-info-wrapper .close{
+			bottom:45px;
+		}
+	}
 	</style>';
 	$hb_products .= '<script>
 	let ourProducts = () => {
@@ -663,12 +689,12 @@ function hb_products() {
 			jQuery( ".hb-single-product" ).outerHeight(wh);
 			jQuery( ".hb-single-product .information" ).outerHeight(wh);
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
-			jQuery( ".hb-single-product .two" ).height(wh*0.35);
-			jQuery( ".hb-single-product .three" ).height(wh*0.25);
+			jQuery( ".hb-single-product .two" ).height(wh*0.25);
+			jQuery( ".hb-single-product .three" ).height(wh*0.35);
 		} else {
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
 			jQuery( ".hb-single-product .two" ).height(wh*0.45);
-			jQuery( ".hb-single-product .three" ).height(wh*015);
+			jQuery( ".hb-single-product .three" ).height(wh*0.15);
 		}
 	}
 	ourProducts();
@@ -690,9 +716,9 @@ function hb_products() {
 	jQuery( ".hb-single-product" ).mouseenter( handlerIn ).mouseleave( handlerOut );
 
 
-	jQuery( ".hb-single-product a" ).click(function(e) {
+	jQuery( ".product-button" ).click(function(e) {
 		e.preventDefault();
-		const infoContent = jQuery(this).parent().parent().parent().next(".information").html();
+		const infoContent = jQuery(this).parent().parent().next(".information").html();
 		jQuery(".hb-products-info-wrapper .more-info-content").html(infoContent);
 		jQuery(".hb-products-info-wrapper").show();
 		jQuery(".hb-products").hide();
@@ -704,7 +730,6 @@ function hb_products() {
 
 	jQuery( ".close" ).on( "click", function(e) {
 		e.preventDefault();
-		console.log( jQuery( this ).text() );
 		jQuery(".hb-products-info-wrapper").hide();
 		jQuery(".hb-products").show();
 	});
