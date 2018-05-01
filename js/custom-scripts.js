@@ -1,5 +1,6 @@
 jQuery( document ).ready(function() {
 
+
   // MENU TOGGLER
   var TOGGLER = function () {
     var _state = false;
@@ -42,6 +43,9 @@ jQuery( document ).ready(function() {
     });
 
 
+
+
+  // MAKE SURE WE HAVE CURRENT MENU UPDATED ON ALL MENUS  
   jQuery(window).scroll(function () {
     var windscroll = jQuery(window).scrollTop();
     if (windscroll > 0) {
@@ -56,6 +60,9 @@ jQuery( document ).ready(function() {
       jQuery('.hb-navigation a:first, .hb-navigation-switches a:first').addClass('current');
     }
   }).scroll();
+
+
+
 
   // SMOOTH SCROLLING
   var lastScrollTop = 0;

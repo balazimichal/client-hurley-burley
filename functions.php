@@ -167,13 +167,13 @@ function hb_products() {
 	$hb_products .= '<div class="hb-single-product blue">';
 	$hb_products .= '<div class="initial">';
 	$hb_products .= '<div class="one"><h2>'.get_field('blue_title', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('blue_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('blue_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p>'.get_field('blue_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('blue_tag', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('blue_image', 'options').'" alt="" /></div>';
-	$hb_products .= '<div class="three"><p><a href="#">'.get_field('blue_link', 'options').'</a></p></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('blue_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="three"><p><a href="#">'.get_field('blue_link', 'options').'</a></p><a class="fusion-button" href="">FIND OUT MORE</a></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
 	$hb_products .= '<div class="info-content blue">';
@@ -216,12 +216,12 @@ function hb_products() {
 	$hb_products .= '<div class="hb-single-product green">';
 	$hb_products .= '<div class="initial">';
 	$hb_products .= '<div class="one"><h2>'.get_field('green_title', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('green_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('green_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p>'.get_field('green_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('green_tag', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('green_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('green_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p><a href="#">'.get_field('green_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
@@ -265,12 +265,12 @@ function hb_products() {
 	$hb_products .= '<div class="hb-single-product orange">';
 	$hb_products .= '<div class="initial">';
 	$hb_products .= '<div class="one"><h2>'.get_field('orange_title', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('orange_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('orange_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p>'.get_field('orange_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('orange_tag', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('orange_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('orange_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p><a href="#">'.get_field('orange_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
@@ -314,12 +314,12 @@ function hb_products() {
 	$hb_products .= '<div class="hb-single-product red">';
 	$hb_products .= '<div class="initial">';
 	$hb_products .= '<div class="one"><h2>'.get_field('red_title', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('red_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" class="hb-maxheight" src="'.get_field('red_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p>'.get_field('red_tag', 'options').'</p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="hover">';
 	$hb_products .= '<div class="one"><h2>'.get_field('red_tag', 'options').'</h2></div>';
-	$hb_products .= '<div class="two"><img src="'.get_field('red_image', 'options').'" alt="" /></div>';
+	$hb_products .= '<div class="two"><img class="hb-maxheight" src="'.get_field('red_image', 'options').'" alt="" /></div>';
 	$hb_products .= '<div class="three"><p><a href="#">'.get_field('red_link', 'options').'</a></p></div>';
 	$hb_products .= '</div>';
 	$hb_products .= '<div class="information">';
@@ -389,7 +389,7 @@ function hb_products() {
 	}	
 
 	.hb-products-info-wrapper .info-content{
-		padding:100px 10%;
+		padding:50px 5%;
 	}
 	.hb-products-info-wrapper .info-content:after{
 		content: "";
@@ -407,17 +407,17 @@ function hb_products() {
 	}
 
 	.hb-products-info-wrapper h2{
-		font-size:100px !important;
+		font-size:4vw !important;
 		color:#fff !important;
 		margin-bottom:40px;
 	}
 	.hb-products-info-wrapper h3{
-		font-size:48px;
+		font-size:3vw;
 		color:#fff;
 		margin-bottom:60px;
 	}
 	.hb-products-info-wrapper p{
-		font-size:36px;
+		font-size:2.4vw;
 		color:#fff;
 		margin-bottom:80px;
 	}
@@ -450,7 +450,7 @@ function hb_products() {
 		    text-align: right;
 			margin-left: 100px;
 			display: block;
-			width: 80%;
+			width: 50%;
 			position: absolute;
 	}
 
@@ -460,7 +460,7 @@ function hb_products() {
 		position:absolute;
 		top:0;
 		left:0;
-		padding:50px 5%;
+		padding:10% 5%;
 		z-index:102;
 		width:25%;
 		width:100%;
@@ -470,7 +470,7 @@ function hb_products() {
 		position:absolute;
 		top:0;
 		left:0;
-		padding:50px 5%;
+		padding:10% 5%;
 		z-index:101;
 		width:100%;
 	}
@@ -607,10 +607,10 @@ function hb_products() {
 	@media only screen and (max-width: 1024px) {
 		.hb-single-product{
 			width:100%;
-			padding:50px 30px;
+			padding:10% 30px;
 		}
 		.hb-products-info-wrapper .info-content{
-			padding:50px 30px;
+			padding:10% 30px;
 		}
 		.hb-products-info-wrapper h2{
 			text-align:center;
@@ -656,20 +656,19 @@ function hb_products() {
 	}
 	</style>';
 	$hb_products .= '<script>
-	console.log("latest version");
 	let ourProducts = () => {
-		const wh = jQuery(window).height();
-		const sph = jQuery( ".hb-single-product" ).height();
+		const wh = jQuery(window).outerHeight();
+		const sph = jQuery( ".hb-single-product" ).outerHeight();
 		if(sph < wh) {
-			jQuery( ".hb-single-product" ).height(wh);
-			jQuery( ".hb-single-product .information" ).height(wh);
+			jQuery( ".hb-single-product" ).outerHeight(wh);
+			jQuery( ".hb-single-product .information" ).outerHeight(wh);
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
-			jQuery( ".hb-single-product .two" ).height(wh*0.5);
-			jQuery( ".hb-single-product .three" ).height(wh*0.2);
+			jQuery( ".hb-single-product .two" ).height(wh*0.35);
+			jQuery( ".hb-single-product .three" ).height(wh*0.25);
 		} else {
 			jQuery( ".hb-single-product .one" ).height(wh*0.3);
-			jQuery( ".hb-single-product .two" ).height(wh*0.6);
-			jQuery( ".hb-single-product .three" ).height(wh*0.1);
+			jQuery( ".hb-single-product .two" ).height(wh*0.45);
+			jQuery( ".hb-single-product .three" ).height(wh*015);
 		}
 	}
 	ourProducts();
@@ -734,8 +733,6 @@ function hb_navigation() {
 						);
 
 
-						// custom menu example @ https://digwp.com/2011/11/html-formatting-custom-menus/
-
 	
 	$hb_navigation = null;
 	$hb_navigation .= '<div class="hb-navigation">';
@@ -771,6 +768,7 @@ function hb_navigation() {
 	$hb_navigation .= '<div class="hb-navigation-switches">';
 	$hb_navigation .= $menu_list;
 	$hb_navigation .= '</div>';
+	$hb_navigation .= '<script>jQuery(".hb-navigation").hide();</script>';
 	$hb_navigation .= '<style>
 		.hb-navigation{
 			display:block;
@@ -804,13 +802,14 @@ function hb_navigation() {
 		.admin-bar .hb-navigation{top:28px;}
 		.hb-navigation-button{
 			position:absolute;
-			top:30px;
+			top:40px;
 			right:30px;
 			display:block;
 			z-index:100;
 			text-align:right;
+			font-size:36px !important;
 		}
-		.admin-bar .hb-navigation-button{top:58px;}
+
 		.hb-navigation-button a:after{    
 			content: "\f0c9";
     		font-family: \'FontAwesome\';
@@ -850,6 +849,14 @@ function hb_navigation() {
 		}
 		@media only screen and (max-width: 1024px) {
 			.hb-navigation-switches{display:none}
+
+		}
+		@media only screen and (max-width: 600px) {
+			.hb-navigation{width:100%}		
+			.hb-navigation ul li a{
+				font-size:24px;
+				padding:5px 0;
+			}
 		}
 	</style>';
 	echo do_shortcode($hb_navigation); 
@@ -877,7 +884,7 @@ function hb_footer() {
 	$hb_footer .= '<a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms-conditions/">Terms & Conditions</a>';
 	$hb_footer .= '</div>';
 	$hb_footer .= '<div class="f-col-4">';
-	$hb_footer .= 'Registered Office - 24 Museum Street, Ipswich, Suffolk. IP1 1HZ. <br />Company Number - 10117603. VAT No. GB 252777383';
+	$hb_footer .= 'Registered Office - 24 Museum Street, Ipswich, Suffolk. IP1 1HZ. Company Number - 10117603. VAT No. GB 252777383';
 	$hb_footer .= '</div>';
 	$hb_footer .= '<div class="f-col-5">';
 	$hb_footer .= 'Hurly Burly Foods Limited<br/>PO Box 73924, London. W8 9HN';
