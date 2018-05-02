@@ -135,9 +135,9 @@ $hb_post_slider .= '<script>
 jQuery(window).load(function() {
   jQuery(".flexslider").flexslider({
 	animation: "fade",
-	animationLoop: false,
-	smoothHeight: true,
-	slideshow: false,
+	animationLoop: true,
+	smoothHeight: false,
+	slideshow: true,
 	directionNav: false
   });
 });
@@ -681,60 +681,6 @@ function hb_products() {
 		}
 	}
 	</style>';
-	$hb_products .= '<script>
-	let ourProducts = () => {
-		const wh = jQuery(window).outerHeight();
-		const sph = jQuery( ".hb-single-product" ).outerHeight();
-		if(sph < wh) {
-			jQuery( ".hb-single-product" ).outerHeight(wh);
-			jQuery( ".hb-single-product .information" ).outerHeight(wh);
-			jQuery( ".hb-single-product .one" ).height(wh*0.3);
-			jQuery( ".hb-single-product .two" ).height(wh*0.25);
-			jQuery( ".hb-single-product .three" ).height(wh*0.35);
-		} else {
-			jQuery( ".hb-single-product .one" ).height(wh*0.3);
-			jQuery( ".hb-single-product .two" ).height(wh*0.45);
-			jQuery( ".hb-single-product .three" ).height(wh*0.15);
-		}
-	}
-	ourProducts();
-	let doit;
-    window.onresize = function(){
-      clearTimeout(doit);
-      doit = setTimeout(ourProducts, 100);
-	};
-
-	const handlerIn = function () {
-		jQuery(this).find(".hover").fadeIn(250);
-		jQuery(this).find(".initial").fadeOut(250);
-	}
-	const handlerOut = function () {
-		jQuery(this).find(".hover").fadeOut(250);
-		jQuery(this).find(".initial").fadeIn(250);
-		
-	}
-	jQuery( ".hb-single-product" ).mouseenter( handlerIn ).mouseleave( handlerOut );
-
-
-	jQuery( ".product-button" ).click(function(e) {
-		e.preventDefault();
-		const infoContent = jQuery(this).parent().parent().next(".information").html();
-		jQuery(".hb-products-info-wrapper .more-info-content").html(infoContent);
-		jQuery(".hb-products-info-wrapper").show();
-		jQuery(".hb-products").hide();
-		jQuery("html, body").animate({
-			scrollTop: jQuery("#our-products").offset().top
-		}, 550);
-	});
-
-
-	jQuery( ".close" ).on( "click", function(e) {
-		e.preventDefault();
-		jQuery(".hb-products-info-wrapper").hide();
-		jQuery(".hb-products").show();
-	});
-	
-	</script>';
 	return $hb_products; 
 }
 add_shortcode('hb-products', 'hb_products');
@@ -762,7 +708,7 @@ function hb_navigation() {
 	$hb_navigation = null;
 	$hb_navigation .= '<div class="hb-navigation">';
 	$hb_navigation .= $hb_menu;
-	$hb_navigation .= '[fusion_social_links icons_boxed="" icons_boxed_radius="" color_type="" icon_colors="" box_colors="" tooltip_placement="" blogger="" deviantart="" digg="" dribbble="" dropbox="" facebook="#" flickr="" forrst="" googleplus="" instagram="#" linkedin="" myspace="" paypal="" pinterest="" reddit="" rss="" skype="" soundcloud="" spotify="" tumblr="" twitter="#" vimeo="" vk="" xing="" yahoo="" yelp="" youtube="" email="" show_custom="no" alignment="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" /]';
+	$hb_navigation .= '[fusion_social_links icons_boxed="" icons_boxed_radius="" color_type="" icon_colors="" box_colors="" tooltip_placement="" blogger="" deviantart="" digg="" dribbble="" dropbox="" facebook="#" flickr="" forrst="" googleplus="" instagram="#" linkedin="" myspace="" paypal="" pinterest="" reddit="" rss="" skype="" soundcloud="" spotify="" tumblr="" twitter="" vimeo="" vk="" xing="" yahoo="" yelp="" youtube="" email="" show_custom="no" alignment="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" /]';
 	$hb_navigation .= '</div>';
 	$hb_navigation .= '<div class="hb-navigation-button">';
 	$hb_navigation .= '<a href="#" class="active"></a>';
@@ -793,7 +739,6 @@ function hb_navigation() {
 	$hb_navigation .= '<div class="hb-navigation-switches">';
 	$hb_navigation .= $menu_list;
 	$hb_navigation .= '</div>';
-	$hb_navigation .= '<script>jQuery(".hb-navigation").hide();</script>';
 	$hb_navigation .= '<style>
 		.hb-navigation{
 			display:block;
@@ -804,10 +749,11 @@ function hb_navigation() {
 			top:0;
 			right:-400px;
 			z-index:100;
-			padding:90px 30px 50px;
+			padding:70px 30px 50px;
 		}
 		.hb-navigation .fusion-social-links{
-			padding-top:120px;
+			position:absolute;
+			bottom:30px;
 		}
 		.hb-navigation ul{
 			list-style:none;
@@ -816,7 +762,8 @@ function hb_navigation() {
 		}
 		.hb-navigation ul li a{
 			color:#fff !important;
-			font-size:32px;
+			font-size: 2vw;
+			line-height: 2vw;
 			border-bottom:1px solid #C42549;
 			display:block;
 			padding:15px 0;
@@ -824,7 +771,7 @@ function hb_navigation() {
 		.hb-navigation ul li a:hover, .hb-navigation ul li a.current{
 			color:#FFB6B1 !important;
 		}
-		.admin-bar .hb-navigation{top:28px;}
+
 		.hb-navigation-button{
 			position:absolute;
 			top:40px;
@@ -874,13 +821,18 @@ function hb_navigation() {
 		}
 		@media only screen and (max-width: 1024px) {
 			.hb-navigation-switches{display:none}
+			.hb-navigation ul li a{
+				font-size:24px;
+			}
 
 		}
 		@media only screen and (max-width: 600px) {
 			.hb-navigation{width:100%}		
 			.hb-navigation ul li a{
-				font-size:24px;
 				padding:5px 0;
+			}
+			.hb-navigation ul li a{
+				line-height: 32px;
 			}
 		}
 	</style>';
@@ -903,7 +855,7 @@ function hb_footer() {
 	$hb_footer .= '<img src="/hurley/wp-content/uploads/2018/04/hb-logo-footer-retina.png" alt="" />';
 	$hb_footer .= '</div>';
 	$hb_footer .= '<div class="f-col-2">';
-	$hb_footer .= '[fusion_social_links icons_boxed="" icons_boxed_radius="" color_type="" icon_colors="#a7a7a7" box_colors="" tooltip_placement="" blogger="" deviantart="" digg="" dribbble="" dropbox="" facebook="#" flickr="" forrst="" googleplus="" instagram="#" linkedin="" myspace="" paypal="" pinterest="" reddit="" rss="" skype="" soundcloud="" spotify="" tumblr="" twitter="#" vimeo="" vk="" xing="" yahoo="" yelp="" youtube="" email="" show_custom="no" alignment="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" /]';
+	$hb_footer .= '[fusion_social_links icons_boxed="" icons_boxed_radius="" color_type="" icon_colors="#a7a7a7" box_colors="" tooltip_placement="" blogger="" deviantart="" digg="" dribbble="" dropbox="" facebook="https://www.facebook.com/hurlyburlyfoods" flickr="" forrst="" googleplus="" instagram="https://www.instagram.com/hurlyburlyfoods/" linkedin="" myspace="" paypal="" pinterest="" reddit="" rss="" skype="" soundcloud="" spotify="" tumblr="" vimeo="" vk="" xing="" yahoo="" yelp="" youtube="" email="" show_custom="no" alignment="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" /]';
 	$hb_footer .= '</div>';
 	$hb_footer .= '<div class="f-col-3">';
 	$hb_footer .= '<a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms-conditions/">Terms & Conditions</a>';
