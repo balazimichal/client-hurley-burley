@@ -836,7 +836,9 @@ function hb_navigation() {
 			}
 		}
 	</style>';
-	echo do_shortcode($hb_navigation); 
+	if(is_front_page()) {
+		echo do_shortcode($hb_navigation); 
+	}
 
 }
 
