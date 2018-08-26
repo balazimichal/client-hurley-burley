@@ -12,6 +12,10 @@ This is a WordPress theme package for single page site based on the designs I wa
 - custom product slider
 - custom section sliders
 
+## Dependencies
+
+Since this is child theme it is dependant on (AVADA theme)[https://avada.theme-fusion.com/]. It is also dependant on (ACF fields)[https://www.advancedcustomfields.com/] plugin.
+
 ## Licence
 
 This is a client project, therefore no copies are allowed. This repo servers only purpose to showcase my work.
