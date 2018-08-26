@@ -14,7 +14,7 @@ This is a WordPress theme package for single page site based on the designs I wa
 
 ## Dependencies
 
-Since this is child theme it is dependant on (AVADA theme)[https://avada.theme-fusion.com/]. It is also dependant on (ACF fields)[https://www.advancedcustomfields.com/] plugin.
+Since this is child theme it is dependant on [https://avada.theme-fusion.com/](AVADA theme). It is also dependant on [https://www.advancedcustomfields.com/](ACF fields) plugin.
 
 ## Licence
 
