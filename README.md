@@ -22,4 +22,4 @@ This is a client project, therefore no copies are allowed. This repo servers onl
 
 ## Screen Capture
 
-![hurly burly app image](/screencapture-hurlyburly.jpg)
+![hurly burly app image](/screencapture-hurlyburlyfoods.jpg)
