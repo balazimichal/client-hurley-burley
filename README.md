@@ -18,4 +18,8 @@ Since this is child theme it is dependant on [AVADA theme](https://avada.theme-f
 
 ## Licence
 
-This is a client project, therefore no copies are allowed. This repo servers only purpose to showcase my work.
+This is a client project, therefore no copies are allowed. This repo servers only purpose to showcase my work. All copy and images provided by client.
+
+## Screen Capture
+
+![hurly burly app image](/screencapture-hurlyburly.jpg)
